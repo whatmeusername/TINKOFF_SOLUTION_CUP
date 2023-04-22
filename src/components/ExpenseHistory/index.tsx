@@ -5,7 +5,11 @@ import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DateSortData, Expense } from "../../interfaces";
 import ExpenseContentGraphs from "../expensesGraphElements/ExpenseContentGraphs";
-import { ExpenseContentNotAvailable, ExpenseContentNotFound } from "./ExpenseContentNotAvailable";
+import {
+	ExpenseContentNotAvailable,
+	ExpenseContentNotEnoughData,
+	ExpenseContentNotFound,
+} from "./ExpenseContentNotAvailable";
 import SortExpensesByDate from "../SortExpensesByDate";
 
 const Columns = {
@@ -90,6 +94,8 @@ const ExpensesContentBlock = observer(() => {
 			<h2 className="expenses__block__header">Ваши расходы{category ? ` в категории "${category}"` : ""}</h2>
 			{expensesData.length > 1 ? (
 				<ExpenseContentGraphs expensesData={expensesData} secondaryAsMost={category !== undefined} />
+			) : expensesData.length === 1 ? (
+				<ExpenseContentNotEnoughData />
 			) : null}
 			<SortExpensesByDate
 				setDateSort={setDateSort}

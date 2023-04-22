@@ -14,4 +14,12 @@ const ExpenseContentNotFound = () => {
 	);
 };
 
-export { ExpenseContentNotAvailable, ExpenseContentNotFound };
+const ExpenseContentNotEnoughData = () => {
+	return (
+		<div className="expenses__not__available expenses__not__available__graphs">
+			<p className="expenses__not__available__label">Недостаточно данных для отображение графиков</p>
+		</div>
+	);
+};
+
+export { ExpenseContentNotAvailable, ExpenseContentNotFound, ExpenseContentNotEnoughData };

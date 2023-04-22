@@ -10,6 +10,12 @@
         font-size: 28px;
         color: var(--text-gray);
     }
+    &.expenses__not__available__graphs{
+        height: 100px;
+        .expenses__not__available__label{
+            font-size: 20px;
+        }
+    }
 }
 
 
@@ -48,7 +54,4 @@
             align-items: center;
         }
     }
-
-
-
 }
