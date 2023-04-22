@@ -1,0 +1,57 @@
+.sidebar__wrapper{
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    background-color: var(--cards-background-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 10px;
+    .add__expense__button{
+        background-color: var(--button-bg);
+        width: 150px;
+        padding: 5px 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        color: var(--text-secondary);
+    }
+
+
+    .sidebar__available__categories__list{
+        list-style: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+        .sidebar__available__categories__item{
+            width: 150px;
+            height: 25px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            color: var(--text-primary);
+            font-size: 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            
+            cursor: pointer;
+            &:hover{
+                background-color: rgb(150, 150, 150, 0.25);
+            }
+        }
+    }
+
+    .sidebar__available__header{
+        text-align: center;
+    }
+    .sidebar__available__empty{
+        color: var(--text-gray);
+        font-size: 16px;
+        text-align: center;
+    }
+
+
+}
