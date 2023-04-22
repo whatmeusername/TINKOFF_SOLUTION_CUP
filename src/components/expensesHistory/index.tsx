@@ -1,11 +1,12 @@
 import { observer } from "mobx-react-lite";
 import "./expensesHistory.scss";
 import expensesStore from "../../store/expenses";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Expense } from "../../interfaces";
+import { DateSortData, Expense } from "../../interfaces";
 import ExpenseContentGraphs from "../extenseGraphElements/ExpenseContentGraphs";
-import { ExpenseContentNotAvailable } from "./ExpenseContentNotAvailable";
+import { ExpenseContentNotAvailable, ExpenseContentNotFound } from "./ExpenseContentNotAvailable";
+import SortExtensesByDate from "../SortExtensesByDate";
 
 const Columns = {
 	name: "название",
@@ -72,10 +73,12 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 });
 
 const ExpensesContentBlock = observer(() => {
-	const { category } = useParams();
-	const expensesData = expensesStore.get(category);
+	const [dateSort, setDateSort] = useState<DateSortData>({ begin: null, end: null });
 
-	if (expensesData.length === 0) {
+	const { category } = useParams();
+	const expensesData = expensesStore.get(category, dateSort);
+
+	if (expensesData.length === 0 && !dateSort.begin && !dateSort.end) {
 		return <ExpenseContentNotAvailable />;
 	}
 
@@ -85,7 +88,8 @@ const ExpensesContentBlock = observer(() => {
 			{expensesData.length > 1 ? (
 				<ExpenseContentGraphs expensesData={expensesData} secondaryAsMost={category !== undefined} />
 			) : null}
-			<ExpenseContent expensesData={expensesData} />
+			<SortExtensesByDate setDateSort={setDateSort} expensesData={expensesData} sortData={dateSort} />
+			{expensesData.length > 0 ? <ExpenseContent expensesData={expensesData} /> : <ExpenseContentNotFound />}
 		</div>
 	);
 });

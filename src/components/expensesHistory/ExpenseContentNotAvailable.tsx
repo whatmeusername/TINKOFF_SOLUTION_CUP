@@ -6,4 +6,12 @@ const ExpenseContentNotAvailable = () => {
 	);
 };
 
-export { ExpenseContentNotAvailable };
+const ExpenseContentNotFound = () => {
+	return (
+		<div className="expenses__not__available">
+			<p className="expenses__not__available__label">мы не нашли не одного расхода по заданому запросу</p>
+		</div>
+	);
+};
+
+export { ExpenseContentNotAvailable, ExpenseContentNotFound };

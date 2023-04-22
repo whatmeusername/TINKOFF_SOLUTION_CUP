@@ -19,14 +19,14 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
 
-expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date(), spend: 20000 });
-expensesStore.addExpense({ name: "Компьютер 78", category: "техника", date: new Date(), spend: 8999 });
-expensesStore.addExpense({ name: "Компьютер 90", category: "техника", date: new Date(), spend: 18999 });
-expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date(), spend: 20000 });
-expensesStore.addExpense({ name: "Компьютер 1", category: "техника", date: new Date(), spend: 29999 });
-expensesStore.addExpense({ name: "Компьютер 32", category: "техника", date: new Date(), spend: 38999 });
-expensesStore.addExpense({ name: "Компьютер 21", category: "техника", date: new Date(), spend: 8999 });
-expensesStore.addExpense({ name: "Компьютер 56", category: "техника", date: new Date(), spend: 88999 });
+expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date("2023-04-20"), spend: 20000 });
+expensesStore.addExpense({ name: "Компьютер 78", category: "техника", date: new Date("2023-04-12"), spend: 8999 });
+expensesStore.addExpense({ name: "Компьютер 90", category: "техника", date: new Date("2023-04-15"), spend: 18999 });
+expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date("2023-04-22"), spend: 20000 });
+expensesStore.addExpense({ name: "Компьютер 1", category: "техника", date: new Date("2023-04-22"), spend: 29999 });
+expensesStore.addExpense({ name: "Компьютер 32", category: "техника", date: new Date("2023-04-26"), spend: 38999 });
+expensesStore.addExpense({ name: "Компьютер 21", category: "техника", date: new Date("2023-04-27"), spend: 8999 });
+expensesStore.addExpense({ name: "Компьютер 56", category: "техника", date: new Date("2023-04-12"), spend: 88999 });
 
 expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 8999999 });
 expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });

@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable, action, computed } from "mobx";
-import { Expense } from "../interfaces";
+import { DateSortData, Expense } from "../interfaces";
 
 class ExpensesStore {
 	id = 0;
@@ -19,10 +19,21 @@ class ExpensesStore {
 	}
 
 	@computed
-	get(category?: string): Expense[] {
+	get(category?: string, date?: DateSortData): Expense[] {
 		let expenses = this.expenses;
 		if (category) {
 			expenses = expenses.filter((e) => e.category === category);
+		}
+		if (date) {
+			if (date.begin && date.end) {
+				expenses = expenses.filter(
+					(e) => e.date && date.begin && date.end && e.date >= date.begin && e.date <= date.end
+				);
+			} else if (date.begin) {
+				expenses = expenses.filter((e) => e.date && date.begin && e.date >= date.begin);
+			} else if (date.end) {
+				expenses = expenses.filter((e) => e.date && date.end && e.date <= date.end);
+			}
 		}
 		return expenses;
 	}

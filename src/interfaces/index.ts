@@ -7,4 +7,9 @@ interface Expense {
 	date?: Date;
 }
 
-export type { Expense };
+interface DateSortData {
+	begin: Date | null;
+	end: Date | null;
+}
+
+export type { Expense, DateSortData };
