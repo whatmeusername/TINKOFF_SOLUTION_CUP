@@ -28,14 +28,14 @@ expensesStore.addExpense({ name: "Компьютер 32", category: "техни�
 expensesStore.addExpense({ name: "Компьютер 21", category: "техника", date: new Date("2023-04-27"), spend: 8999 });
 expensesStore.addExpense({ name: "Компьютер 56", category: "техника", date: new Date("2023-04-12"), spend: 88999 });
 
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 8999999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
-expensesStore.addExpense({ name: "Машина 12", category: "Автопром", date: new Date(), spend: 1999999 });
-expensesStore.addExpense({ name: "Машина 82", category: "Автопром", date: new Date(), spend: 5999999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
-expensesStore.addExpense({ name: "Машина 9", category: "Автопром", date: new Date(), spend: 2999999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
-expensesStore.addExpense({ name: "Машина 5", category: "Автопром", date: new Date(), spend: 999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date("2023-04-18"), spend: 8999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date("2023-04-15"), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 12", category: "Автопром", date: new Date("2023-04-24"), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 82", category: "Автопром", date: new Date("2023-04-29"), spend: 5999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date("2023-04-10"), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 9", category: "Автопром", date: new Date("2023-04-26"), spend: 2999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date("2023-04-09"), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 5", category: "Автопром", date: new Date("2023-04-22"), spend: 999999 });
 
 function App() {
 	return (
