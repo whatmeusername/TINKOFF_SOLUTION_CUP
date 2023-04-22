@@ -35,6 +35,9 @@
     padding: 20px 15px;
     color: var(--text-primary);
     margin: auto;
+    .expenses__header__column__header__label{
+        font-weight: 600;
+    }
     .expenses__row{
         min-width: 100%;
         display: flex;

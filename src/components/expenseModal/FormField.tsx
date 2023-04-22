@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import { Expense } from "../../interfaces";
 
 const FormField = ({
@@ -19,9 +19,7 @@ const FormField = ({
 	const fieldRef = useRef<HTMLInputElement>(null!);
 	const [ErrorMessage, setErrorMessage] = useState<string>("");
 
-	useEffect(() => {
-		refs[fieldName] = validation ? () => validation(setErrorMessage, fieldRef.current.value) : null;
-	}, []);
+	refs[fieldName] = validation ? () => validation(setErrorMessage, fieldRef.current.value) : null;
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		(expensesData as any)[fieldName] = event.target.value;

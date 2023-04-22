@@ -4,9 +4,9 @@ import expensesStore from "../../store/expenses";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DateSortData, Expense } from "../../interfaces";
-import ExpenseContentGraphs from "../extenseGraphElements/ExpenseContentGraphs";
+import ExpenseContentGraphs from "../expensesGraphElements/ExpenseContentGraphs";
 import { ExpenseContentNotAvailable, ExpenseContentNotFound } from "./ExpenseContentNotAvailable";
-import SortExtensesByDate from "../SortExtensesByDate";
+import SortExpensesByDate from "../SortExpensesByDate";
 
 const Columns = {
 	name: "название",
@@ -31,7 +31,7 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 								style={{ maxWidth: `${widthPerColumn}%`, minWidth: `${widthPerColumn}%` }}
 								key={`expenses__header__column__${column}`}
 							>
-								<span className="expenses__header__column__label">{column}</span>
+								<span className="expenses__header__column__header__label">{column}</span>
 							</div>
 						);
 					})}
@@ -43,8 +43,8 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 								className="expenses__item__wrapper expenses__row"
 								key={`expenses__item__row__${expense.id}`}
 							>
-								{Object.keys(Columns).map((column) => {
-									let value = (expense as any)[column];
+								{(Object.keys(Columns) as Array<keyof Expense>).map((column) => {
+									let value = expense[column];
 									if (typeof value === "number") {
 										value = value.toLocaleString("ru");
 										if (column === "spend") {
@@ -91,7 +91,12 @@ const ExpensesContentBlock = observer(() => {
 			{expensesData.length > 1 ? (
 				<ExpenseContentGraphs expensesData={expensesData} secondaryAsMost={category !== undefined} />
 			) : null}
-			<SortExtensesByDate setDateSort={setDateSort} expensesData={expensesData} sortData={dateSort} />
+			<SortExpensesByDate
+				setDateSort={setDateSort}
+				expensesData={expensesData}
+				sortData={dateSort}
+				key={category}
+			/>
 			{expensesData.length > 0 ? <ExpenseContent expensesData={expensesData} /> : <ExpenseContentNotFound />}
 		</div>
 	);

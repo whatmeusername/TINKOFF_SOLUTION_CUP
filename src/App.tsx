@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SideBar from "./components/sidebar";
 
 import expensesStore from "./store/expenses";
-import ExpensesContentBlock from "./components/expensesHistory";
+import ExpensesContentBlock from "./components/ExpenseHistory";
 import AddExpensesModal from "./components/expenseModal";
 
 import {
