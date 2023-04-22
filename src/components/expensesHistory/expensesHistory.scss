@@ -1,4 +1,5 @@
 
+
 .expenses__not__available{
     width: 100%;
     height: 100%;
@@ -12,11 +13,16 @@
 }
 
 
-.expenses__block__header__wrapper{
+.expenses__block__wrapper{
     width: 100%;
     .expenses__block__header{
         text-align: left;
         color: var(--text-primary)
+    }
+    .expenses__content__header{
+        color: var(--text-primary);
+        width: 95%;
+        margin: 10px auto;
     }
 }
 

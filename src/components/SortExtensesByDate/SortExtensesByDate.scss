@@ -1,4 +1,6 @@
 .date__sort__wrapper{
+
+    
     width: 95%;
 
     height: 80px;
@@ -14,6 +16,9 @@
 
     .date__sort__container__item{
         margin-top: 10px;
+        .date__sort__header{
+            font-weight: 600;
+        }
     }
     .date__sort__inputs__wrapper{
         margin: 10px 0;
@@ -35,6 +40,21 @@
 
     .date__extenses__unselected{
         color: var(--text-grey);
+    }
+
+    .date__sort__reset{
+        color: var(--text-primary);
+        transition: color 0.15s ease;
+        border: 1px solid var(--text-primary);
+        background: transparent;
+        transition: border-color 0.15 ease;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover{
+            color: var(--text-gray);
+            border-color: var(--button-bg)
+        }
     }
 
 

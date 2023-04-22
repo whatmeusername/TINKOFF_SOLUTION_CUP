@@ -45,7 +45,7 @@ const AddExpensesModal = observer(() => {
 				<div className="add__expenses__modal__content__head">
 					<h3 className="add__expenses__modal__header">Добавить новую запись о расходе</h3>
 					<button className="add__expenses__modal__close" onClick={() => addExpenseModalControl.toogle()}>
-						отмена
+						закрыть
 					</button>
 				</div>
 				<div className="expenses__add__fields">

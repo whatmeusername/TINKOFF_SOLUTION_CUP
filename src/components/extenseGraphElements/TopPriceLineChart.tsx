@@ -22,8 +22,8 @@ const TopPriceLineChart = ({ expensesData }: { expensesData: Expense[] }) => {
 			{
 				label: "Расход",
 				data: expensesData.map((i) => i.spend),
-				borderColor: "rgb(255, 99, 132)",
-				backgroundColor: "rgba(255, 99, 132, 0.5)",
+				borderColor: "rgb(240, 230, 25)",
+				backgroundColor: "rgba(240, 230, 25, 0.5)",
 			},
 		],
 	};

@@ -20,55 +20,58 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 	const widthPerColumn = useMemo(() => Math.floor(100 / Object.keys(Columns).length), []);
 
 	return (
-		<div className="expenses__content__table__wrapper">
-			<div className="expenses__columns__header expenses__row">
-				{Object.values(Columns).map((column) => {
-					return (
-						<div
-							className="expenses__header__column"
-							style={{ maxWidth: `${widthPerColumn}%`, minWidth: `${widthPerColumn}%` }}
-							key={`expenses__header__column__${column}`}
-						>
-							<span className="expenses__header__column__label">{column}</span>
-						</div>
-					);
-				})}
-			</div>
-			<div className="expenses__items__wrapper">
-				{expensesData.map((expense) => {
-					return (
-						<div
-							className="expenses__item__wrapper expenses__row"
-							key={`expenses__item__row__${expense.id}`}
-						>
-							{Object.keys(Columns).map((column) => {
-								let value = (expense as any)[column];
-								if (typeof value === "number") {
-									value = value.toLocaleString("ru");
-									if (column === "spend") {
-										value += ` ₽`;
+		<>
+			<h2 className="expenses__content__header">Найдено записей: {expensesData.length}</h2>
+			<div className="expenses__content__table__wrapper">
+				<div className="expenses__columns__header expenses__row">
+					{Object.values(Columns).map((column) => {
+						return (
+							<div
+								className="expenses__header__column"
+								style={{ maxWidth: `${widthPerColumn}%`, minWidth: `${widthPerColumn}%` }}
+								key={`expenses__header__column__${column}`}
+							>
+								<span className="expenses__header__column__label">{column}</span>
+							</div>
+						);
+					})}
+				</div>
+				<div className="expenses__items__wrapper">
+					{expensesData.map((expense) => {
+						return (
+							<div
+								className="expenses__item__wrapper expenses__row"
+								key={`expenses__item__row__${expense.id}`}
+							>
+								{Object.keys(Columns).map((column) => {
+									let value = (expense as any)[column];
+									if (typeof value === "number") {
+										value = value.toLocaleString("ru");
+										if (column === "spend") {
+											value += ` ₽`;
+										}
+									} else if (value instanceof Date) {
+										value = value.toLocaleDateString("ru");
+									} else {
+										value = value === "" ? "-" : value;
 									}
-								} else if (value instanceof Date) {
-									value = value.toLocaleDateString("ru");
-								} else {
-									value = value === "" ? "-" : value;
-								}
 
-								return (
-									<div
-										className="expenses__item__column"
-										style={{ maxWidth: `${widthPerColumn}%`, minWidth: `${widthPerColumn}%` }}
-										key={`expenses__item__column__${column}`}
-									>
-										<span className="expenses__header__column__label">{value ?? "-"}</span>
-									</div>
-								);
-							})}
-						</div>
-					);
-				})}
+									return (
+										<div
+											className="expenses__item__column"
+											style={{ maxWidth: `${widthPerColumn}%`, minWidth: `${widthPerColumn}%` }}
+											key={`expenses__item__column__${column}`}
+										>
+											<span className="expenses__header__column__label">{value ?? "-"}</span>
+										</div>
+									);
+								})}
+							</div>
+						);
+					})}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 });
 
@@ -83,7 +86,7 @@ const ExpensesContentBlock = observer(() => {
 	}
 
 	return (
-		<div className="expenses__block__header__wrapper">
+		<div className="expenses__block__wrapper">
 			<h2 className="expenses__block__header">Ваши расходы{category ? ` в категории "${category}"` : ""}</h2>
 			{expensesData.length > 1 ? (
 				<ExpenseContentGraphs expensesData={expensesData} secondaryAsMost={category !== undefined} />
