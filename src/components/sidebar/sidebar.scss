@@ -10,39 +10,50 @@
     padding: 50px 10px;
     .add__expense__button{
         background-color: var(--button-bg);
-        width: 150px;
-        padding: 5px 20px;
+        width: 180px;
+        padding: 10px 0px;
+        font-size: 16px;
         cursor: pointer;
         border: none;
         border-radius: 4px;
         color: var(--text-secondary);
     }
 
-
-    .sidebar__available__categories__list{
-        list-style: none;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-
-        gap: 10px;
-        .sidebar__available__categories__item{
-            width: 150px;
-            height: 25px;
+    .sidebar__available__categories{
+        margin-top: 20px;
+        .sidebar__available__header__hr{
+            border: none;
+            background-color:  rgb(220, 220, 220);
+            height: 1px;
+        }
+        .sidebar__available__categories__list{
+            list-style: none;
+            text-align: center;
             display: flex;
-            justify-content:center;
-            align-items:center;
-            color: var(--text-primary);
-            font-size: 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            
-            cursor: pointer;
-            &:hover{
-                background-color: rgb(150, 150, 150, 0.25);
+            flex-direction: column;
+    
+            gap: 10px;
+            .sidebar__available__categories__item{
+                width: 150px;
+                height: 25px;
+                display: flex;
+                justify-content:center;
+                align-items:center;
+                color: var(--text-primary);
+                font-size: 16px;
+                border-radius: 4px;
+                text-decoration: none;
+                padding: 10px 0;
+                
+                cursor: pointer;
+                &:hover{
+                    background-color: rgb(150, 150, 150, 0.25);
+                }
             }
         }
     }
+
+
 
     .sidebar__available__header{
         text-align: center;

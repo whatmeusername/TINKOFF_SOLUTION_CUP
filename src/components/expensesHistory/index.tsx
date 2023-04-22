@@ -4,14 +4,8 @@ import expensesStore from "../../store/expenses";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Expense } from "../../interfaces";
-
-const ExpenseContentNotAvailabel = () => {
-	return (
-		<div className="expenses__not__available">
-			<p className="expenses__not__available__label">Вы не добавили еще не одного расхода в свою историю</p>
-		</div>
-	);
-};
+import ExpenseContentGraphs from "../extenseGraphElements/ExpenseContentGraphs";
+import { ExpenseContentNotAvailable } from "./ExpenseContentNotAvailable";
 
 const Columns = {
 	name: "название",
@@ -22,10 +16,6 @@ const Columns = {
 };
 
 const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) => {
-	if (expensesData.length === 0) {
-		return <ExpenseContentNotAvailabel />;
-	}
-
 	const widthPerColumn = useMemo(() => Math.floor(100 / Object.keys(Columns).length), []);
 
 	return (
@@ -52,7 +42,17 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 						>
 							{Object.keys(Columns).map((column) => {
 								let value = (expense as any)[column];
-								value = value instanceof Date ? value.toLocaleDateString() : value;
+								if (typeof value === "number") {
+									value = value.toLocaleString("ru");
+									if (column === "spend") {
+										value += ` ₽`;
+									}
+								} else if (value instanceof Date) {
+									value = value.toLocaleDateString("ru");
+								} else {
+									value = value === "" ? "-" : value;
+								}
+
 								return (
 									<div
 										className="expenses__item__column"
@@ -71,15 +71,23 @@ const ExpenseContent = observer(({ expensesData }: { expensesData: Expense[] }) 
 	);
 });
 
-const ExpensesContentBlock = () => {
+const ExpensesContentBlock = observer(() => {
 	const { category } = useParams();
 	const expensesData = expensesStore.get(category);
+
+	if (expensesData.length === 0) {
+		return <ExpenseContentNotAvailable />;
+	}
+
 	return (
 		<div className="expenses__block__header__wrapper">
 			<h2 className="expenses__block__header">Ваши расходы{category ? ` в категории "${category}"` : ""}</h2>
+			{expensesData.length > 1 ? (
+				<ExpenseContentGraphs expensesData={expensesData} secondaryAsMost={category !== undefined} />
+			) : null}
 			<ExpenseContent expensesData={expensesData} />
 		</div>
 	);
-};
+});
 
 export default ExpensesContentBlock;

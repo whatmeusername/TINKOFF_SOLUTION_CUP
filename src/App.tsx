@@ -5,23 +5,37 @@ import expensesStore from "./store/expenses";
 import ExpensesContentBlock from "./components/expensesHistory";
 import AddExpensesModal from "./components/expenseModal";
 
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
-expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+	ArcElement,
+} from "chart.js";
 
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 12", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 82", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 9", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999 });
-expensesStore.addExpense({ name: "Машина 5", category: "Автопром", date: new Date(), spend: 1999 });
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
+
+expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date(), spend: 20000 });
+expensesStore.addExpense({ name: "Компьютер 78", category: "техника", date: new Date(), spend: 8999 });
+expensesStore.addExpense({ name: "Компьютер 90", category: "техника", date: new Date(), spend: 18999 });
+expensesStore.addExpense({ name: "Компьютер 23", category: "техника", date: new Date(), spend: 20000 });
+expensesStore.addExpense({ name: "Компьютер 1", category: "техника", date: new Date(), spend: 29999 });
+expensesStore.addExpense({ name: "Компьютер 32", category: "техника", date: new Date(), spend: 38999 });
+expensesStore.addExpense({ name: "Компьютер 21", category: "техника", date: new Date(), spend: 8999 });
+expensesStore.addExpense({ name: "Компьютер 56", category: "техника", date: new Date(), spend: 88999 });
+
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 8999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 12", category: "Автопром", date: new Date(), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 82", category: "Автопром", date: new Date(), spend: 5999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 9", category: "Автопром", date: new Date(), spend: 2999999 });
+expensesStore.addExpense({ name: "Машина 1", category: "Автопром", date: new Date(), spend: 1999999 });
+expensesStore.addExpense({ name: "Машина 5", category: "Автопром", date: new Date(), spend: 999999 });
 
 function App() {
 	return (

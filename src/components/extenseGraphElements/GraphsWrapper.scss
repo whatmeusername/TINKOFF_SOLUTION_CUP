@@ -1,0 +1,10 @@
+.graphs__wrapper{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0;
+    .graph__wrapper{
+        width: 50%;
+        height: 500px;
+    }
+}
