@@ -3,11 +3,14 @@ import { ReactElement } from "react";
 import ExpensesStore from "../../store/expenses";
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
+import addExpenseModalControl from "../../store/modal";
 
 const SideBar = observer((): ReactElement => {
 	return (
 		<div className="sidebar__wrapper">
-			<button className="add__expense__button">Добавить расход</button>
+			<button className="add__expense__button" onClick={() => addExpenseModalControl.toogle()}>
+				Добавить расход
+			</button>
 			<div className="sidebar__available__categories">
 				<h3 className="sidebar__available__header">Категории:</h3>
 				<div className="sidebar__available__categories__list">

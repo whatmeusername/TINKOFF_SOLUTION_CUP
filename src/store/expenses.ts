@@ -12,6 +12,7 @@ class ExpensesStore {
 
 	@action
 	addExpense(expense: Expense) {
+		expense.date = expense.date ?? new Date();
 		expense.id = this.id++;
 		this.expenses.push(expense);
 		this.categories.add(expense.category);

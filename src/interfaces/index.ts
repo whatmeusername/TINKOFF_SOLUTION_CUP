@@ -4,7 +4,7 @@ interface Expense {
 	category: string;
 	id?: number;
 	spend: number;
-	date: Date;
+	date?: Date;
 }
 
 export type { Expense };

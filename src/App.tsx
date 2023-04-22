@@ -3,6 +3,7 @@ import SideBar from "./components/sidebar";
 
 import expensesStore from "./store/expenses";
 import ExpensesContentBlock from "./components/expensesHistory";
+import AddExpensesModal from "./components/expenseModal";
 
 expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
 expensesStore.addExpense({ name: "продукты", category: "продовольствие", date: new Date(), spend: 100 });
@@ -33,6 +34,7 @@ function App() {
 						<Route path={"/"} element={<ExpensesContentBlock />} />
 					</Routes>
 				</div>
+				<AddExpensesModal />
 			</div>
 		</BrowserRouter>
 	);
